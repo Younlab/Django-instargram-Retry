@@ -17,10 +17,14 @@ from django.conf import settings
 from django.contrib import admin
 from django.urls import path, include
 from django.conf.urls.static import static
+from . import views
 
 urlpatterns = [
+    # admin page
     path('admin/', admin.site.urls),
     path('posts/', include('posts.urls')),
+    # 주소가 root, '/' 일 경우에 posts_list page 로 이동
+    path('', views.index),
 ] + static(
     prefix='/media/',
     document_root=settings.MEDIA_ROOT,
