@@ -1,7 +1,14 @@
 {% extends 'base.html' %}
 {% block content %}
+    <h4>Post list</h4>
     {% for post in posts %}
-        <p>{{ post }}</p>
+        <div>
+            <p>{{ post.author.username }}</p>
+            <p>{{ post.created_at }}</p>
+            <div>{{ post.photo }}</div>
+            <img src="{{ post.photo.url }}" width="100%" alt="">
+            <p><a href="{{ post.pk }}">{{ post }}</a></p>
+        </div>
 
     {% endfor %}
 {% endblock %}

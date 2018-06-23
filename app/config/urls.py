@@ -26,6 +26,6 @@ urlpatterns = [
     # 주소가 root, '/' 일 경우에 posts_list page 로 이동
     path('', views.index),
 ] + static(
-    prefix='/media/',
+    prefix=settings.MEDIA_URL,
     document_root=settings.MEDIA_ROOT,
 )
