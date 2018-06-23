@@ -8,8 +8,18 @@
     <title>Document</title>
 </head>
 <body>
-<h1>instargram</h1>
+<header>
+    {% if user.is_authenticated %}
+        <form action="{% url 'members:logout' %}" method="POST">
+            {% csrf_token %}
+            <button type="submit">logout</button>
+        </form>
+    {% else %}
+        <a href="{% url 'members:login' %}">login</a>
+    {% endif %}
 
+</header>
+<h1>instargram</h1>
 <section>
     {% block content %}
     {% endblock %}
