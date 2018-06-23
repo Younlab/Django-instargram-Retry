@@ -1,13 +1,21 @@
 {% extends 'base.html' %}
 {% block content %}
-    <h4>Post list</h4>
     {% for post in posts %}
-        <div>
-            <p>{{ post.author.username }}</p>
-            <p>{{ post.created_at }}</p>
-            <div>{{ post.photo }}</div>
-            <img src="{{ post.photo.url }}" width="100%" alt="">
-            <p><a href="{{ post.pk }}">{{ post }}</a></p>
+        <div class="colum-wrap">
+
+            <div class="author-box">
+                <p>{{ post.author.username }}</p>
+            </div>
+
+            <div class="image-box">
+                <img src="{{ post.photo.url }}" width="100%" alt="">
+            </div>
+
+            <div class="comment-box">
+                <p><a href="{{ post.pk }}">{{ post }}</a></p>
+                <p>{{ post.created_at }}</p>
+            </div>
+
         </div>
 
     {% endfor %}
