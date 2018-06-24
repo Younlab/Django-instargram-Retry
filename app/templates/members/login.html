@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
+    <div class="sign-in">
     <form action="" method="POST">
         {% csrf_token %}
         <label for="userid">ID</label>
@@ -8,4 +9,5 @@
         <input type="password" id="userpw" name="password">
         <button type="submit">login</button>
     </form>
+    </div>
 {% endblock %}

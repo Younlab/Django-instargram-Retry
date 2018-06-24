@@ -101,3 +101,31 @@ header nav .nav-wrap li form button {
   top: -20%;
   left: 0;
 }
+
+.sign-in{
+    width: 400px;
+    margin: 0 auto;
+}
+.sign-in > form > label, input{
+    display: block;
+    width: 100%;
+    margin: 0 auto;
+}
+.sign-in >form > label{
+    padding-bottom: 8px;
+    padding-top: 8px;
+}
+
+.sign-in > form > button{
+    margin-top: 16px;
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    background: #fff;
+    color: #333;
+    border: 1px solid #e6e6e6;
+    border-radius: 2px;
+    box-sizing: border-box;
+    padding: 0;
+
+}

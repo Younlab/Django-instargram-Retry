@@ -12,7 +12,7 @@
   <header>
     <nav>
       <div class="logo">
-        <img src="{% static 'images/new-instagram-logo.jpg' %}" height="72px" alt="">
+          <a href="{% url 'posts:post' %}"><img src="{% static 'images/new-instagram-logo.jpg' %}" height="72px" alt=""></a>
       </div>
       <ul class="nav-wrap">
           {% if user.is_authenticated %}
