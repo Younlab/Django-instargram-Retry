@@ -1,33 +1,39 @@
 {% load static %}
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="{% static 'css/common.css' %}">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="{% static 'css/common.css' %}">
+  <title>Document</title>
 </head>
 <body>
-<header>
+  <header>
     <nav>
-        {% if user.is_authenticated %}
-            <form action="{% url 'members:logout' %}" method="POST">
-                {% csrf_token %}
-                <button type="submit">logout</button>
-            </form>
-        {% else %}
-            <button><a href="{% url 'members:login' %}">login</a></button>
-            <button><a href="{% url 'members:signup' %}">sine up</a></button>
-        {% endif %}
+      <div class="logo">
+        <img src="{% static 'images/new-instagram-logo.jpg' %}" height="72px" alt="">
+      </div>
+      <ul class="nav-wrap">
+          {% if user.is_authenticated %}
+          <li>
+              <form action="{% url 'members:logout' %}" method="POST">
+                  {% csrf_token %}
+                <button type="submit">Sign out</button>
+              </form>
+          </li>
+          {% else %}
+          <li><a href="{% url 'members:login' %}">Sign in</a></li>
+          <li><a href="{% url 'members:signup' %}">Sign up</a></li>
+          {% endif %}
+      </ul>
     </nav>
+  </header>
 
-</header>
-<section class="container">
-    {% block content %}
-    {% endblock %}
-</section>
+  <section class="container">
+      {% block content %}
 
+      {% endblock %}
+  </section>
 </body>
 </html>
