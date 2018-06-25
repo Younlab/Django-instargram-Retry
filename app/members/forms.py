@@ -53,3 +53,11 @@ class SignupForm(forms.Form):
       else:
           print('pass')
           return data
+
+    def clean(self):
+        cleaned_data = super().clean()
+        pass1 = cleaned_data.get('password')
+        pass2 = cleaned_data.get('password2')
+
+        if pass1 != pass2:
+            raise ValidationError('패스워드가 동일하지 않습니다.')
