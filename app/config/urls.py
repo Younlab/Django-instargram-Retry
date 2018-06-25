@@ -24,7 +24,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('posts/', include('posts.urls')),
     # 주소가 root, '/' 일 경우에 posts_list page 로 이동
-    path('', views.index),
+    path('', views.index, name = 'index'),
     path('members/', include('members.urls',))
 ] + static(
     prefix=settings.MEDIA_URL,
