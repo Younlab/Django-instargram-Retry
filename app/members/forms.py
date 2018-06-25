@@ -46,10 +46,10 @@ class SignupForm(forms.Form):
     )
 
     def clean_username(self):
-        data = self.cleaned_data['username']
-        on_data = User.objects.filter(username=data)
-        if on_data.exists():
-            print('중복된 값이다.')
-            raise forms.ValidationError('중복된 아이디다')
-        print('no')
-        return data
+      data = self.cleaned_data['username']
+      if User.objects.filter(username=data).exists():
+          print('id errors')
+          raise ValidationError('중복된 아이디가 존재합니다.')
+      else:
+          print('pass')
+          return data
