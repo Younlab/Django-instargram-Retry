@@ -1,23 +1,18 @@
 {% extends 'base.html' %}
 {% block content %}
+
     <form action="" method="POST">
-        {% csrf_token %}
-        <label for="username">username</label>
-        <input type="text" id="username" name="username" value="{{ username }}">
-        <label for="last_name">name</label>
-        <input type="text" id="last_name" name="last_name" value="">
-        <label for="email">email</label>
-        <input type="email" name="email" value="{{ email }}">
-        <label for="password">password</label>
-        <input type="password" id="password" name="password">
-        <label for="password2">re password</label>
-        <input type="password" id="password2" name="password2">
-        <button type="submit">sign up</button>
-        <ul>
-        {% for errors in errors %}
-            <li>{{ errors }}</li>
+    {% csrf_token %}
+        {% for field in form %}
+
+      <div class="form-group">
+        <label for="{{ field.id }}">{{ field.label }}</label>
+        <input class="form-control" id="exampleInputEmail1">
+      </div>
         {% endfor %}
-        </ul>
+          <button type="submit" class="btn btn-primary">Submit</button>
+
 
     </form>
+
 {% endblock %}
