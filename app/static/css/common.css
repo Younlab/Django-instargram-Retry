@@ -71,6 +71,7 @@ header nav .nav-wrap li form button {
 }
 
 .colum-wrap {
+    margin-bottom: 16px;
   border: 1px solid #e6e6e6;
   border-radius: 3px;
   background: #fff;
