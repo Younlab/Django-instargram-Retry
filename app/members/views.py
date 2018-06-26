@@ -58,34 +58,21 @@ def sign_up(request):
     #  (통과하지 못한 경우의 'form'변수를 디버깅을 이용해 확인해본다)
     # 1. form.is_valid()를 통과하지 못했을 경우, 해당 내용을 template에 출력하도록 구현
     # 2. SignupForm의 clean()메서드를 재정의하고, password와 password2를 비교해서 유효성을 검증하도록 구현
+
     if request.method == 'POST':
         form = SignupForm(request.POST)
-
         # form에 들어있는 데이터가 유효한지 검사
         if form.is_valid():
-            username = form.cleaned_data['username']
-            email = form.cleaned_data['email']
-            password = form.cleaned_data['password']
-            password2 = form.cleaned_data['password2']
-
-            user = User.objects.create_user(
-                username=username,
-                email=email,
-                password=password,
-            )
-
+            user = form.signup()
             login(request, user)
-
             return redirect('index')
-        else:
-            result = '\n'.join(['{}: {}'.format(key, value) for key, value in form.errors.items()])
-            return HttpResponse(result)
     else:
         form = SignupForm()
-        context = {
-            'form': form,
-        }
-        return render(request, 'members/signup.html', context)
+
+    context = {
+        'form': form,
+    }
+    return render(request, 'members/signup.html', context)
 
 
 def signup_bak(request):
