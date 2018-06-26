@@ -23,6 +23,8 @@
                   {% csrf_token %}
                 <button type="submit">Sign out</button>
               </form>
+                        <p><a href="{% url 'posts:post-edit' %}">edit</a></p>
+
           </li>
           {% else %}
           <li><a href="{% url 'members:login' %}">Sign in</a></li>
