@@ -66,6 +66,7 @@ def sign_up(request):
             user = form.signup()
             login(request, user)
             return redirect('index')
+
     else:
         form = SignupForm()
 

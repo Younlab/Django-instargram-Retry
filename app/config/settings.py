@@ -17,7 +17,6 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 STATIC_DIR = os.path.join(BASE_DIR, 'static')
-
 STATICFILES_DIRS = [
     STATIC_DIR,
 ]
@@ -33,7 +32,7 @@ SECRET_KEY = '3v0&w&gluvk+2#uq&21fc#o_xs-mf1^2$e67btlm!ei@8k%-9r'
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
+AUTH_USER_MODEL = 'members.User'
 
 # Application definition
 
